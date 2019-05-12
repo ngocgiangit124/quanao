@@ -105,4 +105,14 @@ class SanPhamController extends Controller
         return response()->json($data);
     }
 
+    public function deleteImage($id) {
+        $img = HinhAnh::find($id);
+        $Created_at = $img->sanpham->Created_at;
+        $full_item_photo_dir=md5( date_format($Created_at, 'm-Y'));
+        ImageLib::delete_image($full_item_photo_dir, $img->Anh, config('image.images.sanphams'), 0);
+        $img->delete();
+        $rels['status'] = 200;
+        return $rels;
+    }
+
 }

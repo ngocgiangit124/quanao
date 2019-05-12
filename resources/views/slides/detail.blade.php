@@ -1,6 +1,6 @@
 @extends('/template')
 @section('title')
-    Sản Phẩm
+
 @stop
 @section('css')
     <!-- =============== PAGE VENDOR STYLES ===============-->
@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    <h3>Thể Loại
+    <h3>
         <small>??</small>
     </h3>
     <div class="container-fluid">

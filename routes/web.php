@@ -23,6 +23,7 @@ Route::post('/admin/login','BackEnd\HomeController@postLogin');
 
 Route::get('/contact','BackEnd\HomeController@logout');
 
+Route::get('/search','FrontEnd\HomeController@search');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
@@ -42,6 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('/sanpham/{slug}/update', 'BackEnd\SanPhamController@update');
     Route::post('/sanpham/{slug}/delete', 'BackEnd\SanPhamController@delete');
 
+    Route::post('/hinhanh/{id}/delete','BackEnd\SanPhamController@deleteImage');
     //----------------------
     Route::resource('slides','BackEnd\SlideController');
     Route::resource('khachhang', 'BackEnd\KhachHangController');
@@ -60,6 +62,8 @@ Route::post('/login', 'FrontEnd\HomeController@postLogin');
 Route::post('/registration','FrontEnd\HomeController@registration');
 
 Route::get('add-cart',function (){
+
+
     \Gloudemans\Shoppingcart\Facades\Cart::add('293ad', 'Product 1', 1, 9.99);
     echo 'xx';
 });

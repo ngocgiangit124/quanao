@@ -45,4 +45,7 @@ class HinhAnh extends Model
             }
             return $data;
     }
+    public function sanpham() {
+        return $this->belongsTo('App\Models\SanPham','SanPhamId','SanPhamId');
+    }
 }

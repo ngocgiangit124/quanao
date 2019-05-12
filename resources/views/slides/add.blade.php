@@ -1,6 +1,7 @@
 @extends('/template')
 @section('title')
-    Sản Phẩm
+
+
 @stop
 @section('css')
     <!-- =============== PAGE VENDOR STYLES ===============-->

@@ -66,7 +66,15 @@ class HoaDonController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [];
+        $hoadon = HoaDon::find($id);
+        $chitiets =$hoadon->chitiets;
+        foreach ($chitiets as $chitiet) {
+            $data[] = $chitiet->getArrayInfo();
+        }
+        $this->data['chitiets'] = $data;
+//        dd($this->data);
+        return view('hoadon.detail',$this->data);
     }
 
     /**

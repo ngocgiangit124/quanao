@@ -44,10 +44,9 @@
                                         <td>{{$user['Email']}}</td>
                                         <td>{{$user['Phone']}}</td>
                                         {{--<td><a href="/admin/khachhang/{{$user['Id']}}">show</a></td>--}}
-                                        <td><a href="javascript:" class="swal-demo5"  data-id="{{$user['Id']}}">delete</a></td>
+                                        {{--<td><a href="javascript:" class="swal-demo5"  data-id="{{$user['Id']}}">Chi tiết</a></td>--}}
                                     </tr>
                                 @endforeach
-
                                 </tbody>
                             </table>
                         </div>

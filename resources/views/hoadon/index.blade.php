@@ -26,10 +26,10 @@
                             <table class="table table-striped" id="datatable2">
                                 <thead>
                                 <tr>
-                                    <th style="width:20%;">ID</th>
-                                    <th style="width:25%;">Code</th>
-                                    <th style="width:25%;">Số lượng sản phẩm</th>
-                                    <th style="width:15%;">Người mua</th>
+                                    <th style="width:15%;">ID</th>
+                                    <th style="width:15%;">Mã</th>
+                                    <th style="width:15%;">Số lượng sản phẩm</th>
+                                    <th style="width:25%;">Người mua</th>
                                     <th style="width:15%;">Tổng Tiền</th>
                                     <th style="width:15%;">Chi Tiết</th>
                                 </tr>
@@ -42,7 +42,7 @@
                                         <td>{{$hoadon['Amount']}}</td>
                                         <td>{{$hoadon['User']}}</td>
                                         <td>{{$hoadon['Total']}}</td>
-                                        <td><a href="/hoadon/{{$hoadon['Code']}}">Chi Tiết</a></td>
+                                        <td><a href="/admin/hoadon/{{$hoadon['Id']}}">Chi Tiết</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

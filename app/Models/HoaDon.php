@@ -25,4 +25,7 @@ class HoaDon extends Model
     public function user() {
         return $this->belongsTo('App\Models\User','NguoiDungId','NguoiDungId');
     }
+    public function chitiets() {
+        return $this->hasMany('App\Models\ChiTietHoaDon','HoaDonId','HoaDonId');
+    }
 }

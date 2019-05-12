@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
+use App\Models\SanPham;
 use App\Models\User;
 use App\Repositories\SanPhamRepository;
 use App\Repositories\SlideRepository;
@@ -107,5 +108,25 @@ class HomeController extends Controller
         $users->Password = bcrypt(Input::get('Password'));
         $users->save();
         return redirect('/');
+    }
+    public function search() {
+
+        $search = Input::get('search');
+        $query = SanPham::where('Ten','like','%'.$search.'%')->orWhere('Gia',$search);
+        $sanphams = $query->where(function ($query) use ($search) {
+            if(is_int($search)) {
+                return $query->orWhereBetween('Gia',array((0+$search)*90/100, (0+$search)*110/100));
+            }
+        })->orderBy('Gia','desc')->paginate(12);
+
+        $data =[];
+        foreach ($sanphams as $item) {
+            $data[] = $item->getArrayInfo();
+        }
+        $res=$sanphams->toArray();
+        $res['total'] = $sanphams->total();
+        $this->data['sanphams'] = $data;
+        $this->data['paginate'] = $res;
+        return view('front.sanpham.full_index',$this->data);
     }
 }

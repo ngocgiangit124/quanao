@@ -112,9 +112,12 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <div class="search_box pull-right">
-                        <input type="text" placeholder="Search"/>
-                    </div>
+                    <form action="/search" method="get">
+                        <div class="search_box pull-right">
+                            <input type="text" name="search" placeholder="Search"/>
+                            <button type="submit" style="background-color: #F0F0E9;border: 0;height: 35px;width: 35px;"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

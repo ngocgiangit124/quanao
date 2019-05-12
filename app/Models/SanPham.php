@@ -23,6 +23,7 @@ class SanPham extends Model
             "Name" => $this->Ten,
             "Code" => $this->Code,
             "Price" => $this->Gia,
+            "Quality" => $this->Gia,
             "Description" => $this->Mota,
             "Amount" => $this->SoLuong,
             "Info" => $this-> ThongSo,

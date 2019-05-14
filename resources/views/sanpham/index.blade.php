@@ -44,7 +44,7 @@
                             <tr class="gradeX" id="{{$sanpham['Id']}}">
                                 <td>{{$sanpham['Id']}}</td>
                                 <td>{{$sanpham['Name']}}</td>
-                                <td style="background-color: #00aced"><img src="{{$sanpham['Photo']['Small']}}" alt=""></td>
+                                <td style=""><img src="{{$sanpham['Photo']['Small']}}" alt=""></td>
                                 <td>{{$sanpham['Code']}}</td>
                                 <td>{{$sanpham['Amount']}}</td>
                                 <td>{{$sanpham['Quality']}}</td>

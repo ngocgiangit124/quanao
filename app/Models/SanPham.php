@@ -28,16 +28,61 @@ class SanPham extends Model
             "Amount" => $this->SoLuong,
             "Info" => $this-> ThongSo,
             "Slug" => $this-> Slug,
+            "ManHinh" => $this-> ManHinh,
+            "CameraTruoc" => $this-> CameraTruoc,
+            "CameraSau" => $this-> CameraSau,
+            "Ram" => $this-> Ram,
+            "Rom" => $this-> Rom,
+            "CPU" => $this-> CPU,
+            "GPU" => $this-> GPU,
+            "Pin" => $this-> Pin,
+            "HeDieuHanh" => $this-> HeDieuHanh,
+            "Sim" => $this-> Sim,
             "TheLoai" => $this-> NameTheloai(),
             "TheLoaiId" => $this->TheLoaiId,
             "Photo" => $this -> onePhoto(),
             "Photos" => $this -> listPhoto(),
             "Created_at"  =>date('d-m-Y H:i', strtotime($this->Created_at)),
-
         );
-//        dd($rels);
-//        dd($rels['Photos']);
         return $rels;
+    }
+    public function getArrayInfoDetail() {
+        $rels = array(
+            "Id"   => $this->SanPhamId,
+            "Name" => $this->Ten,
+            "Code" => $this->Code,
+            "Price" => $this->Gia,
+            "Quality" => $this->Gia,
+            "Description" => $this->Mota,
+            "Amount" => $this->SoLuong,
+            "Info" => $this-> ThongSo,
+            "Slug" => $this-> Slug,
+            "ManHinh" => $this-> ManHinh,
+            "CameraTruoc" => $this-> CameraTruoc,
+            "CameraSau" => $this-> CameraSau,
+            "Ram" => $this-> Ram,
+            "Rom" => $this-> Rom,
+            "CPU" => $this-> CPU,
+            "GPU" => $this-> GPU,
+            "Pin" => $this-> Pin,
+            "HeDieuHanh" => $this-> HeDieuHanh,
+            "Sim" => $this-> Sim,
+            "TheLoai" => $this-> NameTheloai(),
+            "TheLoaiId" => $this->TheLoaiId,
+            "Photo" => $this -> onePhoto(),
+            "Photos" => $this -> listPhoto(),
+            "Created_at"  =>date('d-m-Y H:i', strtotime($this->Created_at)),
+            "SameProduct" => $this -> listProduct(),
+        );
+        return $rels;
+    }
+    public function listProduct() {
+        $data=[];
+        $sanphams = SanPham::where('TheLoaiId',$this->TheLoaiId)->paginate(6);
+        foreach ($sanphams as $sanpham) {
+            $data[] = $sanpham->getArrayInfo();
+        }
+        return $data;
     }
 
     public function theloai() {

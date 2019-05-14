@@ -34,6 +34,8 @@ class HomeController extends Controller
         $this->data['sanphamNews'] = $sanphamNews['data'];
         $sanphamSale = $this->sanphamRepository->indexSale();
         $this->data['sanphamSale'] = $sanphamSale['data'];
+        $sanphamRandom = $this->sanphamRepository->indexRandom();
+        $this->data['sanphamRandom'] = $sanphamRandom['data'];
 //        dd($this->data);
        return view('front.index',$this->data);
     }

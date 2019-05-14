@@ -66,11 +66,51 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mô tả</label>
-                                <input class="form-control" type="text" value="{{$sanpham['Description']}}" name="Description" required >
+                                <textarea style="height: 200px" class="form-control" type="text" name="Description" required>{!! $sanpham['Description'] !!}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Màn hình</label>
+                                <input class="form-control" type="text" value="{{$sanpham['ManHinh']}}" name="ManHinh" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Camera rrước</label>
+                                <input class="form-control" type="text" value="{{$sanpham['CameraTruoc']}}" name="CameraTruoc" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Camera sau</label>
+                                <input class="form-control" type="text" value="{{$sanpham['CameraSau']}}" name="CameraSau" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Ram</label>
+                                <input class="form-control" type="text" value="{{$sanpham['Ram']}}" name="Ram" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Rom</label>
+                                <input class="form-control" type="text" value="{{$sanpham['Rom']}}" name="Rom" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">CPU</label>
+                                <input class="form-control" type="text" value="{{$sanpham['CPU']}}" name="CPU" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">GPU</label>
+                                <input class="form-control" type="text" value="{{$sanpham['GPU']}}" name="GPU" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Pin</label>
+                                <input class="form-control" type="text" value="{{$sanpham['Pin']}}" name="Pin" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">HeDieuHanh</label>
+                                <input class="form-control" type="text" value="{{$sanpham['HeDieuHanh']}}" name="HeDieuHanh" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Sim</label>
+                                <input class="form-control" type="text" value="{{$sanpham['Sim']}}" name="Sim" required >
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Anh</label>
-                                <input class="form-control" type="file" value="" name="Image[]" multiple  >
+                                <input class="form-control" type="file" name="Image[]" multiple required >
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Hình ảnh</label>

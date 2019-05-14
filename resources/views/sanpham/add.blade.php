@@ -52,7 +52,47 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mô tả</label>
-                                <input class="form-control" type="text" name="Description" required >
+                                <textarea class="form-control" style="height: 200px" type="text" name="Description" required ></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Màn hình</label>
+                                <input class="form-control" type="text" name="ManHinh" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Camera rrước</label>
+                                <input class="form-control" type="text" name="CameraTruoc" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Camera sau</label>
+                                <input class="form-control" type="text" name="CameraSau" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Ram</label>
+                                <input class="form-control" type="text" name="Ram" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Rom</label>
+                                <input class="form-control" type="text" name="Rom" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">CPU</label>
+                                <input class="form-control" type="text" name="CPU" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">GPU</label>
+                                <input class="form-control" type="text" name="GPU" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Pin</label>
+                                <input class="form-control" type="text" name="Pin" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">HeDieuHanh</label>
+                                <input class="form-control" type="text" name="HeDieuHanh" required >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Sim</label>
+                                <input class="form-control" type="text" name="Sim" required >
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Anh</label>

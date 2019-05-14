@@ -48,6 +48,16 @@ class SanPhamController extends Controller
         $sanpham->Code = Input::get('Code');
         $sanpham->Ten = Input::get('Name');
         $sanpham->MoTa = Input::get('Description');
+        $sanpham->ManHinh = Input::get('ManHinh');
+        $sanpham->CameraTruoc = Input::get('CameraTruoc');
+        $sanpham->CameraSau = Input::get('CameraSau');
+        $sanpham->Ram = Input::get('Ram');
+        $sanpham->Rom = Input::get('Rom');
+        $sanpham->CPU = Input::get('CPU');
+        $sanpham->GPU = Input::get('GPU');
+        $sanpham->Pin = Input::get('Pin');
+        $sanpham->HeDieuHanh = Input::get('HeDieuHanh');
+        $sanpham->Sim = Input::get('Sim');
         $sanpham->Slug = str_slug(Input::get('Name'));
         $sanpham->save();
         if (Input::hasFile('Image')) {
@@ -67,6 +77,16 @@ class SanPhamController extends Controller
         $sanpham->Code = Input::get('Code');
         $sanpham->Ten = Input::get('Name');
         $sanpham->MoTa = Input::get('Description');
+        $sanpham->ManHinh = Input::get('ManHinh');
+        $sanpham->CameraTruoc = Input::get('CameraTruoc');
+        $sanpham->CameraSau = Input::get('CameraSau');
+        $sanpham->Ram = Input::get('Ram');
+        $sanpham->Rom = Input::get('Rom');
+        $sanpham->CPU = Input::get('CPU');
+        $sanpham->GPU = Input::get('GPU');
+        $sanpham->Pin = Input::get('Pin');
+        $sanpham->HeDieuHanh = Input::get('HeDieuHanh');
+        $sanpham->Sim = Input::get('Sim');
         $sanpham->Slug = str_slug(Input::get('Name'));
         $sanpham->save();
         if (Input::hasFile('Image')) {

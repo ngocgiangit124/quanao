@@ -55,7 +55,7 @@ class SanPhamController extends Controller
         $theloai = SanPham::where('Slug',$slug)
             ->orWhere('SanPhamId',$slug)
             ->first();
-        $data = $theloai->getArrayInfo();
+        $data = $theloai->getArrayInfoDetail();
         $this->data['sanpham'] = $data;
 //        dd($this->data);
         return view('front.sanpham.detail',$this->data);

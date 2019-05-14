@@ -40,4 +40,17 @@ class SanPhamRepository {
         $res['status'] = 200;
         return $res;
     }
+    public function indexRandom() {
+        $start = rand(1,100);
+        $sanphams = SanPham::where('SoLuong','>=',$start)
+            ->orderBy('SanPhamId','DESC')
+            ->paginate(6);
+        $data = [];
+        foreach ($sanphams as $sanpham) {
+            $data[] = $sanpham->getArrayInfo();
+        }
+        $res['data'] = $data;
+        $res['status'] = 200;
+        return $res;
+    }
 }

@@ -3,6 +3,12 @@
     Sản Phẩm
 @stop
 @section('css')
+    <link href="/front/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/front/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/front/css/price-range.css" rel="stylesheet">
+    <link href="/front/css/animate.css" rel="stylesheet">
+    <link href="/front/css/main.css" rel="stylesheet">
+    <link href="/front/css/responsive.css" rel="stylesheet">
     <style>
         .brands-name .nav-stacked li a {
             text-transform: none;
@@ -17,34 +23,38 @@
     <div class="col-sm-9" style="margin: 0;">
         <div class="product-details"><!--product-details-->
             <div class="col-sm-5">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="view-product">
+                    @foreach($sanpham['Photos'] as $index=>$photo)
+                        @if($index == 0)
+                            <img id="img-main-spec" src="{{$photo['Photos']['Large']}}" alt="" />
+                        @endif
+                    @endforeach
+                    {{--<h3>ZOOM</h3>--}}
+                </div>
+                <div id="similar-product" class="carousel slide" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                        @foreach($sanpham['Photos'] as $index=>$photo)
-                            <div class="carousel-item {{$index==0?'active':''}}">
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12 fix-padding-of-col">
-                                        <img class="d-block w-100" style="max-height: 420px;object-fit: cover;" src="{{$photo['Photos']['Large']}}" alt="Second slide">
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+                        <div class="item active">
+                            @foreach($sanpham['Photos'] as $index=>$photo)
+                                @if($index == 3)
+                        </div>
+                        <div class="item">
+                                @endif
+                                    <a href="javascript:" class="img-spec" data-src="{{$photo['Photos']['Large']}}"><img style="width: 84px;height: 84px" src="{{$photo['Photos']['Large']}}" alt=""></a>
+                            @endforeach
+                        </div>
                     </div>
-                    <ol class="carousel-indicators justify-content-between" style="width: 100%">
-                        @foreach($sanpham['Photos'] as $index=>$photo)
-                            <li data-target="#carouselExampleIndicators" style="width: 31%;height: 100%;max-height: 130px;margin: 0 2px" data-slide-to="{{$index}}" class="{{$index==0 ?'active':''}}">
-                                <img class="d-block w-100" style="max-height: 130px;object-fit: cover;" src="{{$photo['Photos']['Small']}}" alt="First slide">
-                            </li>
-                        @endforeach
-                    </ol>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+
+                    <!-- Controls -->
+                    <a class="left item-control" href="#similar-product" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                    <a class="right item-control" href="#similar-product" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
                     </a>
                 </div>
+
             </div>
             <div class="col-sm-7">
                 <div class="product-information">
@@ -69,91 +79,59 @@
             </div>
         </div><!--/product-details-->
 
+
         <div class="category-tab shop-details-tab"><!--category-tab-->
             <div class="col-sm-12">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#details" data-toggle="tab">Details</a></li>
-                    <li><a href="#companyprofile" data-toggle="tab">Company Profile</a></li>
-                    <li><a href="#tag" data-toggle="tab">Tag</a></li>
-                    <li ><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
+                    <li class="active"><a href="#details" data-id="details" class="tag" data-toggle="tab">Chi Tiết</a></li>
+                    <li ><a href="#companyprofile" data-id="companyprofile" class="tag" data-toggle="tab">Sản phẩm dùng loại</a></li>
+                    <li ><a href="#reviews" data-id="reviews" class="tag" data-toggle="tab">Reviews (5)</a></li>
                 </ul>
             </div>
             <div class="tab-content">
                 <div class="tab-pane fade active in" id="details" >
-                    @foreach($sanpham['SameProduct'] as $san)
-                    <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="{{$san['Photo']['Medium']}}" alt="" />
-                                    <h2>{{$san['Price']}}</h2>
-                                    <p>{{$san['Name']}}</p>
-                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
+                    {!! $sanpham['Description'] !!}
                 </div>
 
                 <div class="tab-pane fade" id="companyprofile" >
-
+                    @foreach($sanpham['SameProduct'] as $san)
+                        <div class="col-sm-3">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{$san['Photo']['Medium']}}" alt="" />
+                                        <h2>{{$san['Price']}}</h2>
+                                        <p>{{$san['Name']}}</p>
+                                        <button type="button" class="btn btn-default add-to-cart add-cart" data-id="{{$san['Id']}}"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
 
-                <div class="tab-pane fade" id="tag" >
-                    <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/gallery1.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/gallery2.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/gallery3.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/gallery4.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="tab-pane fade " id="reviews" >
                     <div class="col-sm-12">
-                        {!! $sanpham['Description'] !!}
+                        <ul>
+                            <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
+                            <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
+                            <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+                        </ul>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <p><b>Write Your Review</b></p>
+
+                        <form action="#">
+										<span>
+											<input type="text" placeholder="Your Name"/>
+											<input type="email" placeholder="Email Address"/>
+										</span>
+                            <textarea name="" ></textarea>
+                            <b>Rating: </b> <img src="/front/images/product-details/rating.png" alt="" />
+                            <button type="button" class="btn btn-default pull-right">
+                                Submit
+                            </button>
+                        </form>
                     </div>
                 </div>
 
@@ -182,7 +160,33 @@
     </div>
 
 
+
+
 @stop
 @section('js')
-    <script type="text/javascript" src="/front/spec.js"></script>
+    <script src="/front/js/price-range.js"></script>
+    <script src="/front/js/jquery.scrollUp.min.js"></script>
+    <script src="/front/js/bootstrap.min.js"></script>
+    <script src="/front/js/jquery.prettyPhoto.js"></script>
+    <script src="/front/js/main.js"></script>
+    {{--<script type="text/javascript" src="/front/spec.js"></script>--}}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.img-spec').click(function () {
+                var src = $(this).attr('data-src');
+                $('#img-main-spec').attr('src',src);
+                console.log('oke');
+            });
+            $('.tag').click(function () {
+               var id = $(this).attr('data-id');
+               $('.tag').parent().removeClass('active');
+               $('.tab-pane').removeClass('active');
+                $('.tab-pane').removeClass('in');
+
+               $(this).parent().addClass('active');
+                $('#'+id).addClass('active');
+                $('#'+id).addClass('in');
+            });
+        });
+    </script>
 @stop

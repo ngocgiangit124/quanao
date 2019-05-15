@@ -68,13 +68,13 @@
                                             <img style="object-fit: cover;height: 250px;" src="{{$sanphamNew['Photo']['Medium']}}" alt="" /></a>
                                         <h2>{{$sanphamNew['Price']}}VND</h2>
                                         <p>{{$sanphamNew['Name']}}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="javascript:" class="btn btn-default add-to-cart add-cart" data-id="{{$sanphamNew['Id']}}"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="choose">
                                     <ul class="nav nav-pills nav-justified">
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                                        {{--<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>--}}
+                                        {{--<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>--}}
                                     </ul>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                                         <img style="height: 200px;object-fit: cover" src="{{$sanpham['Photo']['Medium']}}" alt="" />
                                                         <h2>{{$sanpham['Price']}}</h2>
                                                         <p>{{$sanpham['Name']}}</p>
-                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                        <a href="javascript:" class="btn btn-default add-to-cart add-cart" data-id="{{$sanpham['Id']}}"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                                     </div>
                                                 </div>
                                             </div>

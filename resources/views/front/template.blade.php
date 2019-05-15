@@ -70,7 +70,15 @@
                             @endif
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                            <li style="padding-right: 5px"><a href="/cart" ><i class="fa fa-shopping-cart"></i> Cart
+
+                                </a>
+                            </li>
+                            <li style="padding: 0">
+                                <a href="javascript:" id="amount-spec" style="{{$cart>0?"":"display:none"}};font-weight:700;margin-top: 5px;text-align: center;border-radius: 50%;padding: 3px;width:25px;height:25px;background-color: red">
+                                {{$cart}}
+                                </a>
+                            </li>
                             @if(!$auth)
                                 <li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
                             @else
@@ -304,6 +312,27 @@
 <script src="/front/js/price-range.js"></script>
 <script src="/front/js/jquery.prettyPhoto.js"></script>
 <script src="/front/js/main.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+       $('.add-cart').click(function () {
+           var id =  $(this).attr('data-id');
+           $.ajax({
+               type: "GET",
+               url: "/add-cart?id="+id,
+               data: {},
+           }).done(function (res) {
+               console.log(res);
+               if(res.status == 200) {
+                   alert('Bạn đã thêm thành công giỏ hàng');
+                   $('#amount-spec').css('display','block');
+                   $('#amount-spec').empty();
+                   $('#amount-spec').html(res.total);
+               }
+
+           });
+       });
+    });
+</script>
 
 @yield('js')
 </body>

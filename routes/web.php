@@ -61,12 +61,8 @@ Route::get('/login', 'FrontEnd\HomeController@login');
 Route::post('/login', 'FrontEnd\HomeController@postLogin');
 Route::post('/registration','FrontEnd\HomeController@registration');
 
-Route::get('add-cart',function (){
-
-
-    \Gloudemans\Shoppingcart\Facades\Cart::add('293ad', 'Product 1', 1, 9.99);
-    echo 'xx';
-});
+Route::get('/add-cart','FrontEnd\CartController@store');
+Route::get('/cart','FrontEnd\CartController@show');
 Route::get('add-cart1',function (){
     dd(\Gloudemans\Shoppingcart\Facades\Cart::count());
 });

@@ -18,7 +18,7 @@
                                 <a href="/sanphams/{{$sanpham['Slug']}}"><img style="width: 100%;height:250px;object-fit: cover " src="{{$sanpham['Photo']['Medium']}}" alt="" /></a>
                                 <h2>{{$sanpham['Price']}}VNĐ</h2>
                                 <p>{{$sanpham['Name']}}</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                <a href="#" class="btn btn-default add-to-cart add-cart" data-id="{{$sanpham['Id']}}"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                             </div>
                         </div>
                     </div>

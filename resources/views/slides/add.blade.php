@@ -31,7 +31,7 @@
                                 <div class="form-control" style="height: 70px">
                                     <div>
                                         <label for="" style="width: 100px">Hoạt động</label>
-                                        <input class="form-"  type="radio" value="0" name="Status" required>
+                                        <input class="form-"  type="radio" value="1" name="Status" required>
                                     </div>
                                     <div>
                                         <label for="" style="width: 100px">Ẩn</label>

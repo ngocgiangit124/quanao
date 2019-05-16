@@ -75,7 +75,7 @@
                                 </a>
                             </li>
                             <li style="padding: 0">
-                                <a href="javascript:" id="amount-spec" style="{{$cart>0?"":"display:none"}};font-weight:700;margin-top: 5px;text-align: center;border-radius: 50%;padding: 3px;width:25px;height:25px;background-color: red">
+                                <a href="javascript:" id="amount-spec" style="{{$cart>0?"":"display:none"}};font-weight:700;margin-top: 5px;text-align: center;border-radius: 50%;padding: 3px;width:25px;height:25px;background-color: #FEA93A">
                                 {{$cart}}
                                 </a>
                             </li>

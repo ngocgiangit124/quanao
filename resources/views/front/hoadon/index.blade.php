@@ -76,7 +76,7 @@
             </div>
         </div>
     </section> <!--/#cart_items-->
-    
+
 
 @stop
 @section('js')

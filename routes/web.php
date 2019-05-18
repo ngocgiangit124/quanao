@@ -65,7 +65,10 @@ Route::get('/add-cart','FrontEnd\CartController@store');
 Route::get('/edit-cart','FrontEnd\CartController@edit');
 Route::get('/delete-cart','FrontEnd\CartController@delte');
 Route::get('/cart','FrontEnd\CartController@show');
+Route::get('/hoadon','FrontEnd\HoadonController@index');
 Route::post('/cart','FrontEnd\CartController@buy');
+Route::post('/add-cart-data','FrontEnd\CartController@data');
+Route::post('/comments','FrontEnd\SanPhamController@storeComment');
 Route::get('add-cart1',function (){
     dd(\Gloudemans\Shoppingcart\Facades\Cart::count());
 });
@@ -81,4 +84,5 @@ Route::get('show-cart',function () {
     $a = Cart::content();
     dd($a);
 });
+
 

@@ -21,7 +21,7 @@
                             @foreach($slides as $index=>$slide)
                                 <div class="item {{$index==0?"active":""}}" style="padding: 0">
                                     <div class="col-sm-12">
-                                        <img style="width: 100%;height:441px;object-fit: cover " src="{{$slide['Photos']['Large']}}" class="girl img-responsive" alt="" />
+                                        <img style="width: 100%;max-height:441px;object-fit: cover " src="{{$slide['Photos']['Large']}}" class="girl img-responsive" alt="" />
                                     </div>
                                 </div>
                             @endforeach
@@ -58,7 +58,7 @@
     @include('front.menu',['danhmuc_theloais'=>$danhmuc_theloais])
     <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
-                        <h2 class="title text-center">Features Items</h2>
+                        <h2 class="title text-center">Sản Phẩm</h2>
                         @foreach($sanphamNews as $sanphamNew)
                             <div class="col-sm-4">
                             <div class="product-image-wrapper">
@@ -68,15 +68,10 @@
                                             <img style="object-fit: cover;height: 250px;" src="{{$sanphamNew['Photo']['Medium']}}" alt="" /></a>
                                         <h2>{{$sanphamNew['Price']}}VND</h2>
                                         <p>{{$sanphamNew['Name']}}</p>
-                                        <a href="javascript:" class="btn btn-default add-to-cart add-cart" data-id="{{$sanphamNew['Id']}}"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="javascript:" class="btn btn-default add-to-cart add-cart" data-id="{{$sanphamNew['Id']}}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                     </div>
                                 </div>
-                                <div class="choose">
-                                    <ul class="nav nav-pills nav-justified">
-                                        {{--<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>--}}
-                                        {{--<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>--}}
-                                    </ul>
-                                </div>
+                               
                             </div>
                         </div>
                         @endforeach
@@ -84,7 +79,7 @@
                     </div><!--features_items-->
 
                     <div class="recommended_items"><!--recommended_items-->
-                        <h2 class="title text-center">recommended items</h2>
+                        <h2 class="title text-center">Sản Phẩm Đề Xuất</h2>
 
                         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">

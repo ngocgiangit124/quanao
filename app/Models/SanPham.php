@@ -73,8 +73,17 @@ class SanPham extends Model
             "Photos" => $this -> listPhoto(),
             "Created_at"  =>date('d-m-Y H:i', strtotime($this->Created_at)),
             "SameProduct" => $this -> listProduct(),
+            "Comments"=> $this -> listComment(),
         );
         return $rels;
+    }
+    public function listComment() {
+        $data = [];
+//        dd($this->comments);
+        foreach ($this->comments as $cm) {
+            $data[] = $cm->getArrayInfo();
+        }
+        return $data;
     }
     public function listProduct() {
         $data=[];
@@ -126,6 +135,10 @@ class SanPham extends Model
 //    }
     public function images() {
         return $this->hasMany('App\Models\HinhAnh','SanPhamId','SanPhamId');
+    }
+
+    public function comments() {
+        return $this->hasMany('App\Models\BinhLuan','SanPhamId','SanPhamId');
     }
 
 }

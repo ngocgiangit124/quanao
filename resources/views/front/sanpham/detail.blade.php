@@ -64,10 +64,10 @@
                     {{--<img src="/images/product-details/rating.png" alt="" />--}}
                     <span>
                         <span style="width: 100%">{{$sanpham['Price']}} VND</span><br>
-                        <p><label>Quantity:</label>
-                        <input type="number" class="data-qty" value="1" min="1"/>
+                        <p><label>Số Lượng:</label>
+                        <input type="number" value="1" class="data-qty" />
                         <button type="button" class="btn btn-fefault cart" data-id="{{$sanpham['Id']}}">
-                            <i class="fa fa-shopping-cart"></i>Add to cart
+                            <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
                         </button>
                         </p>
                     </span>
@@ -85,7 +85,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#details" data-id="details" class="tag" data-toggle="tab">Chi Tiết</a></li>
                     <li ><a href="#companyprofile" data-id="companyprofile" class="tag" data-toggle="tab">Sản phẩm dùng loại</a></li>
-                    <li ><a href="#reviews" data-id="reviews" class="tag" data-toggle="tab">Reviews (5)</a></li>
+                    <li ><a href="#reviews" data-id="reviews" class="tag" data-toggle="tab">Bình Luận (5)</a></li>
                 </ul>
             </div>
             <div class="tab-content">
@@ -113,24 +113,25 @@
 
                 <div class="tab-pane fade " id="reviews" >
                     <div class="col-sm-12">
+                        @foreach($sanpham['Comments'] as $cm)
                         <ul>
-                            <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-                            <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-                            <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+                            <li><a href=""><i class="fa fa-user"></i>{{$cm['UserName']}}</a></li>
+                            <li><a href=""><i class="fa fa-clock-o"></i>{{$cm['Created_at']}}</a></li>
+                            {{--<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>--}}
                         </ul>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <p><b>Write Your Review</b></p>
-
-                        <form action="#">
-										<span>
-											<input type="text" placeholder="Your Name"/>
-											<input type="email" placeholder="Email Address"/>
-										</span>
-                            <textarea name="" ></textarea>
-                            <b>Rating: </b> <img src="/front/images/product-details/rating.png" alt="" />
-                            <button type="button" class="btn btn-default pull-right">
-                                Submit
-                            </button>
+                        <p>{!! $cm['Comment'] !!}</p>
+                            <hr>
+                        @endforeach
+                        <form action="/comments" method="post">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <input type="hidden" name="Id" value="{{$auth?$auth->Id:''}}" />
+                            <input type="hidden" name="ProductId" value="{{$sanpham['Id']}}" />
+                            <span>
+                                <input type="text" name="Name" placeholder="Your Name"/>
+                                <input type="email" name="Email" placeholder="Email Address"/>
+                            </span>
+                            <textarea name="Comment"></textarea>
+                            <button type="submit" class="btn btn-default pull-right">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -189,7 +190,7 @@
             });
         });
     </script>
-    <script type="text/javascript">
+      <script type="text/javascript">
         $(document).ready(function () {
             $('.cart').click(function () {
                 var id =  $(this).attr('data-id');

@@ -117,6 +117,8 @@ class CartController extends Controller
             $user->save();
         } else {
             $user = new User();
+            $user->Ten = Input::get('Name');
+            $user->Email = Input::get('Email');
             $user->DiaChi = Input::get('DiaChi');
             $user->SDT = Input::get('Phone');
             $user->save();

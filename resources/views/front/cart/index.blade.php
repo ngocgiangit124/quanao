@@ -28,18 +28,18 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="#">Home</a></li>
-                    <li class="active">Shopping Cart</li>
+                    <li class="active">Giỏ hàng</li>
                 </ol>
             </div>
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>
                     <tr class="cart_menu">
-                        <td class="image">Item</td>
+                        <td class="image">Sản Phẩm</td>
                         <td class="description"></td>
-                        <td class="price">Price</td>
-                        <td class="quantity">Quantity</td>
-                        <td class="total">Total</td>
+                        <td class="price">Giá</td>
+                        <td class="quantity">Số lượng</td>
+                        <td class="total">Thành tiền</td>
                         <td></td>
                     </tr>
                     </thead>
@@ -80,8 +80,8 @@
     <section id="do_action">
         <div class="container">
             <div class="heading">
-                <h3>What would you like to do next?</h3>
-                <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+                <h3>Thông tin khách hàng</h3>
+                <p>Vui lòng nhập đầy đủ thông tin và update mỗi lần thêm giỏ hàng</p>
             </div>
             <div class="row">
                 <div class="col-sm-6">
@@ -92,7 +92,7 @@
                         <ul class="user_info">
                             <li class="single_field zip-field"  style="margin-bottom: 10px">
                                 <label>Họ Tên:</label>
-                                <input type="text" readonly name="Name"  required value="{{$auth?$auth->Ten:''}}" >
+                                <input type="text" {{$auth?'readonly':''}} name="Name"  required value="{{$auth?$auth->Ten:''}}" >
                             </li>
                             <li class="single_field zip-field"  style="margin-bottom: 10px">
                                 <label>Số điện thoại:</label>
@@ -104,7 +104,7 @@
                             </li>
                             <li class="single_field zip-field" style="margin-bottom: 10px">
                                 <label>Email:</label>
-                                <input type="text" readonly name="Email" required value="{{$auth?$auth->Email:''}}">
+                                <input type="text" {{$auth?'readonly':''}} name="Email" required value="{{$auth?$auth->Email:''}}">
                             </li>
                         </ul>
                         <a class="btn btn-default update" href="/login">Đăng nhập</a>
@@ -115,9 +115,9 @@
                 <div class="col-sm-6">
                     <div class="total_area">
                         <ul>
-                            <li>Total <span>{{$total}} VND</span></li>
+                            <li>Thành Tiền <span>{{$total}} VND</span></li>
                         </ul>
-                        <a class="btn btn-default update" href="/cart">Update</a>
+                        <a class="btn btn-default update" href="/cart">Cập Nhật</a>
                         {{--<a class="btn btn-default check_out" href=""></a>--}}
                     </div>
                 </div>

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use App\Libraries\ImageLib;
+use App\Models\BinhLuan;
 use App\Models\HinhAnh;
 use App\Models\SanPham;
 use App\Models\TheLoai;
+use App\Models\User;
 use App\Repositories\TheLoaiRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -59,5 +61,22 @@ class SanPhamController extends Controller
         $this->data['sanpham'] = $data;
 //        dd($this->data);
         return view('front.sanpham.detail',$this->data);
+    }
+    public function storeComment() {
+        $id = Input::get('Id');
+        if($id) {
+            $user = User::find($id);
+        } else {
+            $user = new User();
+            $user->Ten = Input::get('Name');
+            $user->Email = Input::get('Email');
+            $user->save();
+        }
+        $cm = new BinhLuan();
+        $cm -> BinhLuan = Input::get('Comment');
+        $cm -> SanPhamId = Input::get('ProductId');
+        $cm -> NguoiDungId = $user->NguoiDungId;
+        $cm->save();
+        return back();
     }
 }

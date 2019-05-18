@@ -32,14 +32,7 @@
     <div class="header_top"><!--header_top-->
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="contactinfo">
-                        <ul class="nav nav-pills">
-                            <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
-                        </ul>
-                    </div>
-                </div>
+               
                 <div class="col-sm-6">
                     <div class="social-icons pull-right">
 
@@ -68,9 +61,9 @@
                             @else
                                 <li><a href="#"><i class="fa fa-user"></i>{{$auth->Ten}}</a></li>
                             @endif
-                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li style="padding-right: 5px"><a href="/cart" ><i class="fa fa-shopping-cart"></i> Cart
+                           
+                            <li><a href="/hoadon"><i class="fa fa-crosshairs"></i> Hóa đơn</a></li>
+                            <li style="padding-right: 5px"><a href="/cart" ><i class="fa fa-shopping-cart"></i> Giỏ hàng
 
                                 </a>
                             </li>
@@ -80,9 +73,9 @@
                                 </a>
                             </li>
                             @if(!$auth)
-                                <li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+                                <li><a href="/login"><i class="fa fa-lock"></i> Đăng nhập </a></li>
                             @else
-                                <li><a href="/logout"><i class="fa fa-lock"></i> Logout</a></li>
+                                <li><a href="/logout"><i class="fa fa-lock"></i> Đăng xuất </a></li>
                             @endif
                         </ul>
                     </div>
@@ -105,7 +98,7 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="/" class="active">Home</a></li>
+                            <li><a href="/" class="active">Trang chủ</a></li>
                             <li class="dropdown"><a href="#">Sản Phẩm<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     @foreach($danhmuc_theloais as $theloai)
@@ -113,7 +106,7 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a href="/about">About</a></li>
+                            <li><a href="/about">Giới thiệu</a></li>
                             {{--<li><a href="/404.html">404</a></li>--}}
                             <li><a href="/contact">Liên hệ</a></li>
                         </ul>
@@ -122,7 +115,7 @@
                 <div class="col-sm-3">
                     <form action="/search" method="get">
                         <div class="search_box pull-right">
-                            <input type="text" name="search" placeholder="Search"/>
+                            <input type="text" name="search" placeholder="Tìm Kiếm"/>
                             <button type="submit" style="background-color: #F0F0E9;border: 0;height: 35px;width: 35px;"><i class="fa fa-search"></i></button>
                         </div>
                     </form>
@@ -149,80 +142,7 @@
 <footer id="footer"><!--Footer-->
     <div class="footer-top">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-2">
-                    <div class="companyinfo">
-                        <h2><span>e</span>-shopper</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
-                    </div>
-                </div>
-                <div class="col-sm-7">
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/front/images/home/iframe1.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/front/images/home/iframe2.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/front/images/home/iframe3.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/front/images/home/iframe4.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="address">
-                        <img src="/front/images/home/map.png" alt="" />
-                        <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-                    </div>
-                </div>
+          
             </div>
         </div>
     </div>
@@ -232,54 +152,42 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="single-widget">
-                        <h2>Service</h2>
+                       
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Online Help</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Order Status</a></li>
-                            <li><a href="#">Change Location</a></li>
-                            <li><a href="#">FAQ’s</a></li>
+                            <li><a href="#">Giới thiệu về công ty</a></li>
+                            <li><a href="#">Câu hỏi thường gặp mua hàng</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Quy chế hoạt động</a></li>
+                            <li><a href="#">Kiểm tra hóa đơn điện tử</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="single-widget">
-                        <h2>Quock Shop</h2>
+                        
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">T-Shirt</a></li>
-                            <li><a href="#">Mens</a></li>
-                            <li><a href="#">Womens</a></li>
-                            <li><a href="#">Gift Cards</a></li>
-                            <li><a href="#">Shoes</a></li>
+                            <li><a href="#">Tin tuyển dụng</a></li>
+                            <li><a href="#">Tin khuyến mãi</a></li>
+                            <li><a href="#">Hướng dẫn mua online</a></li>
+                            <li><a href="#">Hướng dẫn mua trả góp</a></li>
+                            <li><a href="#">Chính sách trả góp</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="single-widget">
-                        <h2>Policies</h2>
+                       
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Privecy Policy</a></li>
-                            <li><a href="#">Refund Policy</a></li>
-                            <li><a href="#">Billing System</a></li>
-                            <li><a href="#">Ticket System</a></li>
+                            <li><a href="#">Hệ thống cửa hàng</a></li>
+                            <li><a href="#">Hệ thống bảo hành</a></li>
+                            <li><a href="#">Kiểm tra hàng Apple chính hãng</a></li>
+                            <li><a href="#">Giới thiệu máy đổi trả</a></li>
+                            <li><a href="#">Chính sách đổi trả</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-2">
-                    <div class="single-widget">
-                        <h2>About Shopper</h2>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Company Information</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Store Location</a></li>
-                            <li><a href="#">Affillate Program</a></li>
-                            <li><a href="#">Copyright</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-sm-offset-1">
-                    <div class="single-widget">
+
+                 <div class="single-widget" style="float: right;">
                         <h2>About Shopper</h2>
                         <form action="#" class="searchform">
                             <input type="text" placeholder="Your email address" />
@@ -296,7 +204,7 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+                <p class="pull-left">Copyright © Chuyên Liêm CL</p>
                 <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
             </div>
         </div>

@@ -36,7 +36,10 @@ class ChiTietHoaDon extends Model
         if($sanpham) {
             return $sanpham->onePhoto();
         }
-        return 'đã bị xóa';
+        $data['Small'] = env("HOME_PAGE").'/img/logo.png';
+        $data['Medium'] = env("HOME_PAGE").'/img/logo.png';
+        $data['Large'] = env("HOME_PAGE").'/img/logo.png';
+        return $data;
     }
     public function sanpham() {
         return $this->belongsTo('App\Models\SanPham','SanPhamId','SanPhamId');

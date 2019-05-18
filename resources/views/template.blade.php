@@ -202,7 +202,7 @@
                                 <!-- Name and Job-->
                                 <div class="user-block-info">
                                     <span class="user-block-name">Hello, {{$auth['Ten']}}</span>
-                                    <span class="user-block-role">???</span>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -212,13 +212,7 @@
                     <li class="nav-heading ">
                         <span data-localize="sidebar.heading.HEADER">Thương hiệu</span>
                     </li>
-                    <li class=" ">
-                        <a href="widgets.html" title="Widgets">
-                            <div class="pull-right label label-success">10</div>
-                            <em class="icon-grid"></em>
-                            <span data-localize="sidebar.nav.WIDGETS">Nhà Sản xuất</span>
-                        </a>
-                    </li>
+                    
                     <li class=" ">
                         <a href="#dashboard" title="Dashboard" data-toggle="collapse">
                             <div class="pull-right label label-info">3</div>
@@ -300,7 +294,7 @@
     <!-- Page footer-->
 
     <footer>
-        <span>&copy; 2019 - Spectre-NNG(Support)</span>
+        <span>&copy; 2019 - Chuyên liêm CL</span>
     </footer>
 
 

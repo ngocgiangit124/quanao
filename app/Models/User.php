@@ -40,7 +40,7 @@ class User extends Authenticatable
             "Phone"       => $this->SDT,
             "Avatar"    => $this->getAvatars(),
             "Quyen"  => $this->Quyen,
-
+//            "Commets" => ''
         );
         return $rels;
     }
@@ -72,6 +72,9 @@ class User extends Authenticatable
         }
 
         return $data;
+    }
+    public function hoadons() {
+        return $this->hasMany('App\Models\Hoadon','NguoiDungId','NguoiDungId');
     }
 
     /**

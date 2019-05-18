@@ -65,8 +65,8 @@
                     <span>
                         <span style="width: 100%">{{$sanpham['Price']}} VND</span><br>
                         <p><label>Quantity:</label>
-                        <input type="number" value="3" />
-                        <button type="button" class="btn btn-fefault cart">
+                        <input type="number" class="data-qty" value="1" min="1"/>
+                        <button type="button" class="btn btn-fefault cart" data-id="{{$sanpham['Id']}}">
                             <i class="fa fa-shopping-cart"></i>Add to cart
                         </button>
                         </p>
@@ -186,6 +186,27 @@
                $(this).parent().addClass('active');
                 $('#'+id).addClass('active');
                 $('#'+id).addClass('in');
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.cart').click(function () {
+                var id =  $(this).attr('data-id');
+                var qty =  $('.data-qty').val();
+                var url = '/edit-cart' + '?id='+id+'&amount='+qty;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    data: {},
+                }).done(function (res) {
+                    console.log(res);
+                    alert('Bạn đã thêm thành công giỏ hàng');
+                    $('#amount-spec').css('display','block');
+                    $('#amount-spec').empty();
+                    $('#amount-spec').html(res.total);
+
+                });
             });
         });
     </script>

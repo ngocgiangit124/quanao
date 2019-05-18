@@ -35,23 +35,30 @@ class CartController extends Controller
     }
     public function edit() {
         $id = Input::get('id');
-        $check = Input::get('check');
+        $check = Input::has('check')?Input::get('check'):2;
+        $amount =Input::has('amount')?Input::get('amount'): 0;
         $cart = Cart::content();
         $rowId  = Cart::search(function ($cart, $key) use($id) {
             return $cart->id == $id;
         })->first();
-//        dd($rowId);
-        $product = SanPham::find($id);
-        $sanpham = $product->getArrayInfo();
         if ($rowId && $check==1) {
             Cart::update($rowId->rowId, $rowId->qty + 1);
             $rels['data'] = 1;
         }
         elseif($rowId && $check==0) {
-            Cart::update($rowId->rowId, $rowId->qty - 1);
-            $rels['data'] = 0;
+            if($rowId->qty >1 ) {
+                Cart::update($rowId->rowId, $rowId->qty - 1);
+                $rels['data'] = 0;
+            }
         }
-        else{
+        elseif($rowId && $amount>0) {
+            Cart::update($rowId->rowId, $rowId->qty + $amount);
+            $rels['data'] = 0;
+        } elseif(!$rowId && $amount>0) {
+            $product = SanPham::find($id);
+//            dd($id,$product);
+            Cart::add(array('id' => $product->SanPhamId, 'name' => $product->Ten, 'qty' => $amount, 'price' => $product->Gia));
+        } else {
             $rels['status'] = -1;
             return response()->json($rels);
         }
@@ -139,5 +146,25 @@ class CartController extends Controller
         $hoadon->save();
         Cart::destroy();
         return view('front.ok',$this->data);
+    }
+    public function data() {
+        $id = Input::get('id');
+        $cart = Cart::content();
+        $rowId  = Cart::search(function ($cart, $key) use($id) {
+            return $cart->id == $id;
+        })->first();
+//        dd($rowId);
+        $product = SanPham::find($id);
+        $sanpham = $product->getArrayInfo();
+        if ($rowId) {
+            Cart::update($rowId->rowId, $rowId->qty + 1);
+        } else {
+            Cart::add(array('id' => $product->SanPhamId, 'name' => $product->Ten, 'qty' => 1, 'price' => $product->Gia));
+        }
+        $count = Cart::count();
+        $rels['status'] = 200;
+        $rels['total'] =$count;
+//        Cart::destroy();
+        return response()->json($rels);
     }
 }

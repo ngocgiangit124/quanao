@@ -61,8 +61,9 @@
                             @else
                                 <li><a href="#"><i class="fa fa-user"></i>{{$auth->Ten}}</a></li>
                             @endif
-                           
-                            <li><a href="/hoadon"><i class="fa fa-crosshairs"></i> Hóa đơn</a></li>
+                            @if($auth)
+                                <li><a href="/hoadon"><i class="fa fa-crosshairs"></i>Hóa đơn </a></li>
+                            @endif
                             <li style="padding-right: 5px"><a href="/cart" ><i class="fa fa-shopping-cart"></i> Giỏ hàng
 
                                 </a>

@@ -27,7 +27,7 @@ Route::get('/search','FrontEnd\HomeController@search');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
-    Route::get('/','BackEnd\NhanVienController@test');
+    Route::get('/','BackEnd\NhanVienController@index');
     Route::get('/danhmuc/{Slug}/sanpham', 'BackEnd\SanPhamController@listSanPham');
     Route::get('/danhmuc/', 'BackEnd\TheLoaiController@index');
     Route::post('/danhmuc', 'BackEnd\TheLoaiController@store');
@@ -66,6 +66,7 @@ Route::get('/edit-cart','FrontEnd\CartController@edit');
 Route::get('/delete-cart','FrontEnd\CartController@delte');
 Route::get('/cart','FrontEnd\CartController@show');
 Route::get('/hoadon','FrontEnd\HoadonController@index');
+Route::get('/hoadon/{id}/chitiet','FrontEnd\HoadonController@show');
 Route::post('/cart','FrontEnd\CartController@buy');
 Route::post('/add-cart-data','FrontEnd\CartController@data');
 Route::post('/comments','FrontEnd\SanPhamController@storeComment');

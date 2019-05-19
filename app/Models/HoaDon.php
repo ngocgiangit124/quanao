@@ -15,6 +15,7 @@ class HoaDon extends Model
         $rels = array(
             "Id"   => $this->HoaDonId,
             "Code" => $this->Code,
+            'Product' =>$this->chitiets()->count(),
             "Amount" => $this->SoLuongSanPham,
             "User" => $this->user->Ten,
             "Total" => $this->TongTien,

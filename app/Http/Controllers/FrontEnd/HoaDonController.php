@@ -22,7 +22,7 @@ class HoaDonController extends Controller
     {
         $user = Auth::user();
         if(!$user) {
-            return view('errors.404');
+            return view('errors.404',$this->data);
         }
         $hoadons = $user->hoadons;
         $data = [];
@@ -79,7 +79,7 @@ class HoaDonController extends Controller
         }
         $this->data['chitiets'] = $data;
 //        dd($this->data);
-        return view('hoadon.detail',$this->data);
+        return view('front.hoadon.detail',$this->data);
     }
 
     /**

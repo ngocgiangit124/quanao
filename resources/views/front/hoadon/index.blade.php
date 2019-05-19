@@ -34,43 +34,40 @@
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>
-                    <tr class="cart_menu">
-                        <td class="">Sản Phẩm</td>
-                        <td class=""></td>
-                        <td class="">Giá</td>
+                    <tr class="cart_menu" style="text-align: center">
+                        <td class="">Id</td>
+                        <td class="">Mã hóa đơn</td>
+                        <td class="">Số sản phẩm</td>
                         <td class="">Số lượng</td>
                         <td class="">Thành tiền</td>
+                        <td>Thời gian mua</td>
                         <td></td>
                     </tr>
                     </thead>
                     <tbody>
-                    {{--@foreach($show_cart as $show)--}}
-                        {{--<tr>--}}
-                            {{--<td class="">--}}
-                                {{--<a href="javascript:"><img src="{{$show['Product']['Photo']['Small']}}" alt=""></a>--}}
-                            {{--</td>--}}
-                            {{--<td class="">--}}
-                                {{--<h4><a href="">{{$show['Product']['Name']}}</a></h4>--}}
-                                {{--<p>Web ID: {{$show['Product']['Code']}}</p>--}}
-                            {{--</td>--}}
-                            {{--<td class="">--}}
-                                {{--<p>{{$show['Product']['Price']}} VND</p>--}}
-                            {{--</td>--}}
-                            {{--<td class="">--}}
-                                {{--<div class="cart_quantity_button">--}}
-                                    {{--<a class="cart_quantity_up" data-id="{{$show['Id']}}" data-check="1" href="javascript:"> + </a>--}}
-                                    {{--<input readonly style="width: 50px" class="cart_quantity_input" id="input-{{$show['Id']}}" type="number" min="1" name="quantity" value="{{$show['Amount']}}" autocomplete="off" size="2">--}}
-                                    {{--<a class="cart_quantity_down" data-id="{{$show['Id']}}" data-check="0" href="javascript:"> - </a>--}}
-                                {{--</div>--}}
-                            {{--</td>--}}
-                            {{--<td class="">--}}
-                                {{--<p class="cart_total_price">{{$show['Price']}} VND</p>--}}
-                            {{--</td>--}}
-                            {{--<td class="">--}}
-                                {{--<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>--}}
-                            {{--</td>--}}
-                        {{--</tr>--}}
-                    {{--@endforeach--}}
+                    @foreach($hoadons as $index=>$show)
+                        <tr style="text-align: center">
+                            <td class="">
+                                {{$index}}
+                            </td>
+                            <td class="">
+                                {{$show['Code']}}
+                            </td>
+                            <td class="">
+                                {{$show['Product']}}
+                            </td>
+                            <td class="">
+                                {{$show['Amount']}}
+                            </td>
+                            <td class="">
+                                {{$show['Total']}} vnd
+                            </td>
+                            <td class="">
+                                {{$show['Created_at']}}
+                            </td>
+                            <td><a href="/hoadon/{{$show['Id']}}/chitiet">Chi tiết</a></td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

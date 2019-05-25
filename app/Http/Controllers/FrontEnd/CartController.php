@@ -75,7 +75,8 @@ class CartController extends Controller
         $rowId = Cart::search(function ($cart, $key) use ($id) {
             return $cart->id == $id;
         })->first();
-        Cart::remove($rowId->rowId);
+        $a = $rowId->rowId;
+        Cart::remove($a);
         $rels['status'] = 200;
 //        Cart::destroy();
         return response()->json($rels);
@@ -140,6 +141,7 @@ class CartController extends Controller
             $chitiet ->SanPhamId = $a->id;
             $chitiet->HoaDonId = $hoadon->HoaDonId;
             $chitiet->save();
+            $this->buysanpham($a->id,$a->qty);
             $total = $total+($a->qty*$a->price);
             $soluong = $soluong +($a->qty);
         }
@@ -168,5 +170,10 @@ class CartController extends Controller
         $rels['total'] =$count;
 //        Cart::destroy();
         return response()->json($rels);
+    }
+    function buysanpham($id,$soluong) {
+        $sanpham = SanPham::find($id);
+        $sanpham -> SoLuongBan =  (0+$sanpham -> SoLuongBan) + $soluong;
+        $sanpham->save();
     }
 }

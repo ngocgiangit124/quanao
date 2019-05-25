@@ -63,7 +63,7 @@ Route::post('/registration','FrontEnd\HomeController@registration');
 
 Route::get('/add-cart','FrontEnd\CartController@store');
 Route::get('/edit-cart','FrontEnd\CartController@edit');
-Route::get('/delete-cart','FrontEnd\CartController@delte');
+Route::get('/delete-cart','FrontEnd\CartController@delete');
 Route::get('/cart','FrontEnd\CartController@show');
 Route::get('/hoadon','FrontEnd\HoadonController@index');
 Route::get('/hoadon/{id}/chitiet','FrontEnd\HoadonController@show');

@@ -45,9 +45,11 @@
                     </thead>
                     <tbody>
                     @foreach($show_cart as $show)
-                    <tr>
+                    <tr id="id-{{$show['Id']}}">
                         <td class="cart_product">
-                            <a href="javascript:"><img src="{{$show['Product']['Photo']['Small']}}" alt=""></a>
+                            <a href="javascript:">
+                                <img src="{{$show['Product']['Photo']['Small']}}" alt="">
+                            </a>
                         </td>
                         <td class="cart_description">
                             <h4><a href="">{{$show['Product']['Name']}}</a></h4>
@@ -67,7 +69,9 @@
                             <p class="cart_total_price">{{$show['Price']}} VND</p>
                         </td>
                         <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                            <a class="cart_quantity_delete" data-id="{{$show['Id']}}" href="javascript:">
+                                <i class="fa fa-times"></i>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -166,7 +170,23 @@
                     else {
                         console.log('xx');
                     }
-
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.cart_quantity_delete').click(function () {
+                var id =  $(this).attr('data-id');
+                var url = "delete-cart?id="+id;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    data: {}
+                }).done(function (res) {
+                    if(res.status==200) {
+                        $('#id-'+id).remove();
+                    }
                 });
             });
         });

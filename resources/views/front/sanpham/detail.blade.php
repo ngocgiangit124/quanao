@@ -62,10 +62,10 @@
                     <h2>{{$sanpham['Name']}}</h2>
                     <p> ID: {{$sanpham['Code']}}</p>
                     {{--<img src="/images/product-details/rating.png" alt="" />--}}
-                    <span>
+                    <span style="width: 100%;">
                         <span style="width: 100%">{{$sanpham['Price']}} VND</span><br>
                         <p><label>Số Lượng:</label>
-                        <input type="number" value="1" class="data-qty" />
+                        <input type="number" style="width: 60px;" value="0" min="0" max="{{$sanpham['QualityAgain']}}" class="data-qty" />
                         <button type="button" class="btn btn-fefault cart" data-id="{{$sanpham['Id']}}">
                             <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
                         </button>
@@ -209,6 +209,15 @@
 
                 });
             });
+            $('.data-qty').change(function () {
+               var value = $('.data-qty').val();
+                var max = $('.data-qty').attr('max');
+                console.log(value,max);
+               if(parseInt(value)>parseInt(max)) {
+                   $('.data-qty').val(max);
+               }
+            });
         });
     </script>
+
 @stop

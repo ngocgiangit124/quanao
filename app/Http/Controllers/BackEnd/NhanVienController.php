@@ -77,6 +77,7 @@ class NhanVienController extends Controller
             }
         })->get();
 
+        $comments = $this->listComments();
 
 
         $datatime['time_f'] = $timeF;
@@ -91,8 +92,17 @@ class NhanVienController extends Controller
         $data['tongkhachhang'] =$users->count();
         $data['chon'] =$datatime;
         $this->data['doanhthu'] =$data;
-//dd($data);
+        $this->data['binhluans'] =$comments;
+//dd($this->data);
         return view('index',$this->data);
+    }
+    function listComments() {
+        $comments = BinhLuan::orderBy('BinhLuanId','desc')->paginate(10);
+        $data =[];
+        foreach ($comments as $comment ) {
+            $data[] = $comment->getArrayInfo();
+        }
+        return $data;
     }
 
     public function index1() {

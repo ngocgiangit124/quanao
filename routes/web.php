@@ -70,6 +70,7 @@ Route::get('/hoadon/{id}/chitiet','FrontEnd\HoadonController@show');
 Route::post('/cart','FrontEnd\CartController@buy');
 Route::post('/add-cart-data','FrontEnd\CartController@data');
 Route::post('/comments','FrontEnd\SanPhamController@storeComment');
+Route::get('/pdf/{id}','FrontEnd\HoadonController@pdf');
 Route::get('add-cart1',function (){
     dd(\Gloudemans\Shoppingcart\Facades\Cart::count());
 });

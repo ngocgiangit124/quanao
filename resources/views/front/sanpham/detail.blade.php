@@ -72,7 +72,7 @@
                         </p>
                     </span>
                     <p><b>Thương hiệu:</b>{{$sanpham['TheLoai']}}</p>
-                    <p><b>Số lượng:</b> {{$sanpham['Amount']}}</p>
+                    <p><b>Số lượng:</b> {{$sanpham['QualityAgain']}}</p>
                     <p><b>Web:</b> E-SHOPPER</p>
                     <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
                 </div><!--/product-information-->

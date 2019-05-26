@@ -212,137 +212,37 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <div class="pull-right label label-danger">5</div>
-                                <div class="pull-right label label-success">12</div>
-                                <div class="panel-title">Team messages</div>
+                                <div class="pull-right label label-success">10</div>
+                                <div class="panel-title">Đánh giá gần đây!</div>
                             </div>
                             <!-- START list group-->
                             <div class="list-group" data-height="180" data-scrollable="">
                                 <!-- START list group item-->
+                                @foreach($binhluans as $binhluan)
                                 <a class="list-group-item" href="#">
                                     <div class="media-box">
-                                        <div class="pull-left">
-                                            <img class="media-box-object img-circle thumb32" src="img/user/02.jpg" alt="Image">
-                                        </div>
+                                        {{--<div class="pull-left">--}}
+                                            {{--<img class="media-box-object img-circle thumb32" src="img/user/02.jpg" alt="Image">--}}
+                                        {{--</div>--}}
                                         <div class="media-box-body clearfix">
-                                            <small class="pull-right">2h</small>
+                                            <small class="pull-right">{{$binhluan['Created_at']}}</small>
                                             <strong class="media-box-heading text-primary">
-                                                <span class="circle circle-success circle-lg text-left"></span>Catherine Ellis</strong>
+                                                <span class="circle circle-success circle-lg text-left"></span>{{$binhluan['UserName']}}</strong>
                                             <p class="mb-sm">
-                                                <small>Cras sit amet nibh libero, in gravida nulla. Nulla...</small>
+                                                <small>{{$binhluan['Comment']}}</small>
                                             </p>
                                         </div>
                                     </div>
                                 </a>
+                                @endforeach
                                 <!-- END list group item-->
                                 <!-- START list group item-->
-                                <a class="list-group-item" href="#">
-                                    <div class="media-box">
-                                        <div class="pull-left">
-                                            <img class="media-box-object img-circle thumb32" src="img/user/03.jpg" alt="Image">
-                                        </div>
-                                        <div class="media-box-body clearfix">
-                                            <small class="pull-right">3h</small>
-                                            <strong class="media-box-heading text-primary">
-                                                <span class="circle circle-success circle-lg text-left"></span>Jessica Silva</strong>
-                                            <p class="mb-sm">
-                                                <small>Cras sit amet nibh libero, in gravida nulla. Nulla facilisi.</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- END list group item-->
-                                <!-- START list group item-->
-                                <a class="list-group-item" href="#">
-                                    <div class="media-box">
-                                        <div class="pull-left">
-                                            <img class="media-box-object img-circle thumb32" src="img/user/09.jpg" alt="Image">
-                                        </div>
-                                        <div class="media-box-body clearfix">
-                                            <small class="pull-right">4h</small>
-                                            <strong class="media-box-heading text-primary">
-                                                <span class="circle circle-danger circle-lg text-left"></span>Jessie Wells</strong>
-                                            <p class="mb-sm">
-                                                <small>Cras sit amet nibh libero, in gravida nulla. Nulla...</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- END list group item-->
-                                <!-- START list group item-->
-                                <a class="list-group-item" href="#">
-                                    <div class="media-box">
-                                        <div class="pull-left">
-                                            <img class="media-box-object img-circle thumb32" src="img/user/12.jpg" alt="Image">
-                                        </div>
-                                        <div class="media-box-body clearfix">
-                                            <small class="pull-right">1d</small>
-                                            <strong class="media-box-heading text-primary">
-                                                <span class="circle circle-danger circle-lg text-left"></span>Rosa Burke</strong>
-                                            <p class="mb-sm">
-                                                <small>Cras sit amet nibh libero, in gravida nulla. Nulla...</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- END list group item-->
-                                <!-- START list group item-->
-                                <a class="list-group-item" href="#">
-                                    <div class="media-box">
-                                        <div class="pull-left">
-                                            <img class="media-box-object img-circle thumb32" src="img/user/10.jpg" alt="Image">
-                                        </div>
-                                        <div class="media-box-body clearfix">
-                                            <small class="pull-right">2d</small>
-                                            <strong class="media-box-heading text-primary">
-                                                <span class="circle circle-danger circle-lg text-left"></span>Michelle Lane</strong>
-                                            <p class="mb-sm">
-                                                <small>Mauris eleifend, libero nec cursus lacinia...</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- END list group item-->
                             </div>
                             <!-- END list group-->
                             <!-- START panel footer-->
-                            <div class="panel-footer clearfix">
-                                <div class="input-group">
-                                    <input class="form-control input-sm" type="text" placeholder="Search message ..">
-                                    <span class="input-group-btn">
-                                <button class="btn btn-default btn-sm" type="submit"><i class="fa fa-search"></i>
-                                </button>
-                             </span>
-                                </div>
-                            </div>
+
                             <!-- END panel-footer-->
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- START widget-->
-                        <div class="panel widget">
-                            <div class="panel-body">
-                                <div class="clearfix">
-                                    <h3 class="pull-left text-muted mt0">300</h3>
-                                    <em class="pull-right text-muted fa fa-coffee fa-2x"></em>
-                                </div>
-                                <div class="pv-lg" data-sparkline="" data-type="line" data-height="80" data-width="100%" data-line-width="2" data-line-color="#7266ba" data-spot-color="#888" data-min-spot-color="#7266ba" data-max-spot-color="#7266ba" data-fill-color=""
-                                     data-highlight-line-color="#fff" data-spot-radius="3" data-values="1,3,4,7,5,9,4,4,7,5,9,6,4,3,6,3,4,5,9,9" data-resize="true"></div>
-                                <p>
-                                    <small class="text-muted">Actual progress</small>
-                                </p>
-                                <div class="d-flex justify-content-between">
-                                    <div>2014</div>
-                                    <div>2013</div>
-                                    <div>2012</div>
-                                    <div>2012</div>
-                                    <div>2012</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END widget-->
                     </div>
                 </div>
             </div>

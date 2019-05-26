@@ -17,6 +17,7 @@ class ChiTietHoaDon extends Model
             "Name" => $this->oneTen(),
             "Amount" => $this->SoLuong,
             "Photo"=> $this->onePhoto(),
+            "Price" => $this->onePrice(),
             "Total" => $this->TongTien,
             "Created_at"  =>date('d-m-Y H:i', strtotime($this->Created_at)),
         );
@@ -27,6 +28,14 @@ class ChiTietHoaDon extends Model
 //        dd($sanpham);
         if($sanpham) {
             return $sanpham->Ten;
+        }
+        return 'đã bị xóa';
+    }
+    public function onePrice() {
+        $sanpham = $this->sanpham;
+//        dd($sanpham);
+        if($sanpham) {
+            return $sanpham->Gia;
         }
         return 'đã bị xóa';
     }

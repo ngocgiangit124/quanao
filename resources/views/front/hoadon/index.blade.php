@@ -42,6 +42,7 @@
                         <td class="">Thành tiền</td>
                         <td>Thời gian mua</td>
                         <td></td>
+                        <td></td>
                     </tr>
                     </thead>
                     <tbody>
@@ -66,6 +67,7 @@
                                 {{$show['Created_at']}}
                             </td>
                             <td><a href="/hoadon/{{$show['Id']}}/chitiet">Chi tiết</a></td>
+                            <td><a href="/pdf/{{$show['Id']}}">Lấy hóa đơn</a></td>
                         </tr>
                     @endforeach
                     </tbody>

@@ -6,6 +6,7 @@ use App\Models\HoaDon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class HoaDonController extends Controller
 {
@@ -128,5 +129,26 @@ class HoaDonController extends Controller
         $slide->delete();
         $rels['status']= 200;
         return response()->json($rels);
+    }
+
+    public function pdf($id)
+    {
+        $data = [];
+        $hoadon = HoaDon::find($id);
+        $tong = $hoadon->TongTien;
+        $time = $hoadon->Created_at;
+        $chitiets =$hoadon->chitiets;
+        foreach ($chitiets as $chitiet) {
+            $data[] = $chitiet->getArrayInfo();
+        }
+        $this->data['chitiets'] = $data;
+        $this->data['hoadontong'] = $tong;
+        $this->data['hoadontg'] = $time;
+
+        $khach =$hoadon->user;
+        $this->data['khach'] = $khach->getArrayInfo();
+//        dd($this->data);
+        $pdf = PDF::loadView('pdf',$this->data);
+        return $pdf->download('pdf.pdf');
     }
 }

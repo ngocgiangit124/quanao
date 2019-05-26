@@ -40,6 +40,7 @@ class User extends Authenticatable
             "Phone"       => $this->SDT,
             "Avatar"    => $this->getAvatars(),
             "Quyen"  => $this->Quyen,
+            'DiaChi' => $this->DiaChi,
 //            "Commets" => ''
         );
         return $rels;

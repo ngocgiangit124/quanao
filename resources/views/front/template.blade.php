@@ -100,7 +100,7 @@
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li><a href="/" class="active">Trang chủ</a></li>
-                            <li class="dropdown"><a href="#">Sản Phẩm<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a href="javascript:">Sản Phẩm<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     @foreach($danhmuc_theloais as $theloai)
                                         <li><a href="/theloai/{{$theloai['Slug']}}/sanpham">{{$theloai['Name']}}</a></li>

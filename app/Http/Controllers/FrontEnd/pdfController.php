@@ -8,10 +8,10 @@ use PDF;
 
 class pdfController extends Controller
 {
-    public function index()
-    {
-        $data = ['name' => 'tienduong'];
-        $pdf = PDF::loadView('pdf');
-        return $pdf->download('pdf.pdf');
-    }
+//    public function index()
+//    {
+//        $data = ['name' => 'tienduong'];
+//        $pdf = PDF::loadView('pdf');
+//        return $pdf->download('pdf.pdf');
+//    }
 }

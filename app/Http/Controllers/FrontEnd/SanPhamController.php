@@ -63,9 +63,17 @@ class SanPhamController extends Controller
         $data = $theloai->getArrayInfoDetail();
         $this->data['sanpham'] = $data;
 //        dd($this->data);
+
+
         return view('front.sanpham.detail',$this->data);
     }
-    public function storeComment() {
+    public funct $sanphamRandom = SanPham::where('TheLoaiId',$theloai->TheLoaiId)->paginate(3);
+$data1 = [];
+foreach ($sanphamRandom as $sanphamRandoms) {
+$data1[] = $sanphamRandoms->getArrayInfo();
+}
+
+$this->data['sanphamRandom'] = $data1;ion storeComment() {
         $id = Input::get('Id');
         if($id) {
             $user = User::find($id);

@@ -133,22 +133,22 @@ class HoaDonController extends Controller
 
     public function pdf($id)
     {
-        $data = [];
-        $hoadon = HoaDon::find($id);
-        $tong = $hoadon->TongTien;
-        $time = $hoadon->Created_at;
-        $chitiets =$hoadon->chitiets;
-        foreach ($chitiets as $chitiet) {
-            $data[] = $chitiet->getArrayInfo();
-        }
-        $this->data['chitiets'] = $data;
-        $this->data['hoadontong'] = $tong;
-        $this->data['hoadontg'] = $time;
-
-        $khach =$hoadon->user;
-        $this->data['khach'] = $khach->getArrayInfo();
-//        dd($this->data);
-        $pdf = PDF::loadView('pdf',$this->data);
-        return $pdf->download('pdf.pdf');
+//        $data = [];
+//        $hoadon = HoaDon::find($id);
+//        $tong = $hoadon->TongTien;
+//        $time = $hoadon->Created_at;
+//        $chitiets =$hoadon->chitiets;
+//        foreach ($chitiets as $chitiet) {
+//            $data[] = $chitiet->getArrayInfo();
+//        }
+//        $this->data['chitiets'] = $data;
+//        $this->data['hoadontong'] = $tong;
+//        $this->data['hoadontg'] = $time;
+//
+//        $khach =$hoadon->user;
+//        $this->data['khach'] = $khach->getArrayInfo();
+////        dd($this->data);
+//        $pdf = PDF::loadView('pdf',$this->data);
+//        return $pdf->download('pdf.pdf');
     }
 }
